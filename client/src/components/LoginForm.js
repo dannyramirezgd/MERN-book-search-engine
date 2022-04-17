@@ -31,7 +31,7 @@ const LoginForm = () => {
     try {
       // const response = await loginUser(userFormData);
       const { data } = await login({
-        variable: { ...userFormData }
+        variables: { ...userFormData }
       });
 
       // if (!response.ok) {
@@ -57,7 +57,7 @@ const LoginForm = () => {
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your login credentials!
+          {error && <div>Something went wrong with your login!</div>}
         </Alert>
         <Form.Group>
           <Form.Label htmlFor='email'>Email</Form.Label>
